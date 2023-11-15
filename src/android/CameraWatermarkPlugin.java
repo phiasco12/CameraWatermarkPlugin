@@ -1,14 +1,14 @@
 package com.cordova.camerawatermarkplugin;
 
-
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 
-import org.apache.cordova.CordovaInterface; // Add this import statement
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CallbackContext;
-import org.json.JSONArray; 
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,8 +65,11 @@ public class CameraWatermarkPlugin extends CordovaPlugin {
         try {
             JSONObject data = new JSONObject();
             data.put("watermarkPath", watermarkPath);
-            webView.getPluginManager().postMessage("CameraWatermarkPlugin", "addWatermark", data);
-            callbackContext.success();
+
+            PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, data);
+            pluginResult.setKeepCallback(true);
+
+            callbackContext.sendPluginResult(pluginResult);
         } catch (JSONException e) {
             callbackContext.error("Error creating JSON object: " + e.getMessage());
         }
