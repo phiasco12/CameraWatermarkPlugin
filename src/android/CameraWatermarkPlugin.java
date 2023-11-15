@@ -8,6 +8,7 @@ import android.hardware.Camera;
 import android.view.SurfaceHolder;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
@@ -22,7 +23,6 @@ public class CameraWatermarkPlugin extends CordovaPlugin {
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-
         // Initialize your plugin here
     }
 
@@ -66,7 +66,7 @@ public class CameraWatermarkPlugin extends CordovaPlugin {
             }
         };
 
-        webView.getPluginManager().postMessage("CameraWatermarkPlugin", "addWatermark", watermarkPath);
+        webView.getPluginManager().postMessage("CameraWatermarkPlugin", "addWatermark", new Object[]{watermarkPath});
         callbackContext.success();
     }
 }
