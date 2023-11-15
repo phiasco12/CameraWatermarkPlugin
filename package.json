@@ -1,0 +1,19 @@
+{
+  "name": "cordova-plugin-CameraWatermarkPlugin",
+  "version": "0.0.1",
+  "description": "Cordova app to place watermark on camera view.",
+  "cordova": {
+    "id": "cordova-plugin-CameraWatermarkPlugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Rooz",
+  "license": "ISC"
+}

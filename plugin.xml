@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-CameraWatermarkPlugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CameraWatermarkPlugin</name><js-module name="CameraWatermarkPlugin" src="www/CameraWatermarkPlugin.js"><clobbers target="cordova.plugins.CameraWatermarkPlugin" /></js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CameraWatermarkPlugin"><param name="android-package" value="cordova-plugin-CameraWatermarkPlugin.CameraWatermarkPlugin" /></feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" /><source-file src="src/android/CameraWatermarkPlugin.java" target-dir="src/cordova-plugin-CameraWatermarkPlugin/CameraWatermarkPlugin" />
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-feature android:name="android.hardware.camera" />
+            <uses-feature android:name="android.hardware.camera.autofocus" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <!-- Add any other necessary permissions here -->
+        </config-file>
+
+        <!-- You may also need to specify features required by your plugin -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CameraWatermarkPlugin">
+                <param name="android-package" value="com.example.camerawatermarkplugin.CameraWatermarkPlugin" />
+            </feature>
+        </config-file>
+           
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="CameraWatermarkPlugin"><param name="ios-package" value="CameraWatermarkPlugin" /></feature>
+        </config-file>
+        <source-file src="src/ios/CameraWatermarkPlugin.m" />
+    </platform>
+</plugin>
