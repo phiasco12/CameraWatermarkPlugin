@@ -1,6 +1,5 @@
 package com.cordova.camerawatermarkplugin;
 
-package your.package.name;
 
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
